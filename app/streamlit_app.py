@@ -5,7 +5,15 @@ Bayesian belief updating, and clinical safety escalation.
 """
 
 import os
+import sys
+from pathlib import Path
 import pickle
+
+# Ensure project root is in sys.path so 'src' can be imported regardless of execution CWD
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 import streamlit as st
 import plotly.graph_objects as go
 
@@ -32,13 +40,13 @@ st.warning(
 @st.cache_resource
 def load_resources():
     """Load Bayesian model and node configuration."""
-    model_path = os.path.join("results", "bn_model.pkl")
+    model_path = os.path.join(PROJECT_ROOT, "results", "bn_model.pkl")
     if not os.path.exists(model_path):
         st.error(f"Trained model not found at {model_path}. Please train the model first.")
         st.stop()
     with open(model_path, "rb") as f:
         model = pickle.load(f)
-    cfg = load_nodes_config()
+    cfg = load_nodes_config(str(PROJECT_ROOT / "config" / "nodes.json"))
     return model, cfg
 
 

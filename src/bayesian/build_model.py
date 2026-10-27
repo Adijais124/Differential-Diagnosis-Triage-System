@@ -18,6 +18,11 @@ from src.data.load_ddxplus import TARGET_CONDITIONS
 
 def load_nodes_config(config_path: str = "config/nodes.json") -> dict:
     """Load Bayesian nodes configuration."""
+    if not os.path.exists(config_path):
+        repo_root = Path(__file__).resolve().parent.parent.parent
+        alt_path = repo_root / config_path
+        if alt_path.exists():
+            config_path = str(alt_path)
     with open(config_path, "r", encoding="utf-8") as f:
         return json.load(f)
 
