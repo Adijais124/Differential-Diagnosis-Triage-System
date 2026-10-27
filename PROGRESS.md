@@ -45,6 +45,12 @@
 - **Key numbers:** 2/2 unit tests passed (syntax compilation verified, mandatory educational disclaimers verified).
 - **Any concern:** None; runs entirely locally without external API dependencies.
 
+## Task 9: Evaluation of Active Questioning Policies
+- **What was done:** Simulated 400 test patient encounters comparing EIG active querying vs random order vs fixed order policies (fixed seed = 42).
+- **Key numbers:** EIG needed 1.36 avg questions (vs 6.00 random, 4.73 fixed) — a 77.3% reduction in question burden; achieved 97.5% accuracy and 100% ACS recall (vs 94.6% for random); entropy reduction 1.798 bits.
+- **Any concern:** None; interactive plot generated in results/query_eval_plot.html.
+
+
 
 
 

@@ -1,0 +1,31 @@
+{
+  "evaluation_cohort": {
+    "sample_size": 400,
+    "random_seed": 42,
+    "test_split_source": "data/processed/test_filtered.csv.gz"
+  },
+  "policy_comparison": {
+    "eig": {
+      "avg_questions_needed": 1.36,
+      "final_accuracy": 0.975,
+      "acs_recall": 1.0,
+      "acs_safety_escalation_recall": 1.0,
+      "avg_entropy_reduction_bits": 1.798
+    },
+    "random": {
+      "avg_questions_needed": 6.0,
+      "final_accuracy": 0.955,
+      "acs_recall": 0.9459,
+      "acs_safety_escalation_recall": 0.9568,
+      "avg_entropy_reduction_bits": 1.7575
+    },
+    "fixed": {
+      "avg_questions_needed": 4.73,
+      "final_accuracy": 0.975,
+      "acs_recall": 1.0,
+      "acs_safety_escalation_recall": 1.0,
+      "avg_entropy_reduction_bits": 1.7968
+    }
+  },
+  "conclusions": "Active questioning with EIG systematically identifies the most informative question at each turn, reducing patient question burden while maintaining 100% ACS safety capture."
+}
