@@ -30,6 +30,12 @@
 - **Key numbers:** 12/12 NLP unit tests passed (including all 3 original notebook sentences: breathlessness detected via pronoun expansion, exertional false positive eliminated, contrastive negation verified).
 - **Any concern:** None; unmapped scispaCy biomedical entities preserved in result dictionary.
 
+## Task 6: NLP Gold Set & Baseline Comparison
+- **What was done:** Curated 50-sentence gold test corpus in evaluation/nlp_cases.json; benchmarked full pipeline against Milestone 2 rule-only baseline.
+- **Key numbers:** Pipeline F1: 0.8022 vs Baseline F1: 0.6358 (+16.64% F1 gain); pipeline precision 0.8068 / recall 0.7978.
+- **Any concern:** Corpus marked 'needs_human_review: true' (status: 'draft gold set, not yet reviewed') for team verification.
+
+
 
 
 

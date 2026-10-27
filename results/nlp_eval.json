@@ -1,0 +1,205 @@
+{
+  "status": "draft gold set, not yet reviewed",
+  "needs_human_review": true,
+  "num_test_cases": 50,
+  "comparison": {
+    "baseline": {
+      "overall": {
+        "precision": 0.8333,
+        "recall": 0.514,
+        "f1_score": 0.6358,
+        "tp": 55,
+        "fp": 11,
+        "fn": 52
+      },
+      "per_node": {
+        "burning_sensation": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 6
+        },
+        "feeling_of_impending_doom": {
+          "precision": 1.0,
+          "recall": 0.5714,
+          "f1": 0.7273,
+          "support": 7
+        },
+        "high_blood_pressure": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "pain_character": {
+          "precision": 0.8462,
+          "recall": 0.5238,
+          "f1": 0.6471,
+          "support": 21
+        },
+        "pain_radiation": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 8
+        },
+        "pleuritic_pain": {
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333,
+          "support": 5
+        },
+        "prior_heart_attack_angina": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8889,
+          "support": 5
+        },
+        "racing_heart": {
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "support": 9
+        },
+        "recent_viral_infection": {
+          "precision": 0.4286,
+          "recall": 0.75,
+          "f1": 0.5455,
+          "support": 4
+        },
+        "shortness_of_breath": {
+          "precision": 0.8571,
+          "recall": 0.4615,
+          "f1": 0.6,
+          "support": 13
+        },
+        "smoker": {
+          "precision": 0.6,
+          "recall": 0.5,
+          "f1": 0.5455,
+          "support": 6
+        },
+        "sweating": {
+          "precision": 0.8182,
+          "recall": 0.8182,
+          "f1": 0.8182,
+          "support": 11
+        },
+        "worse_after_eating": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 4
+        },
+        "worse_lying_down": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4
+        }
+      }
+    },
+    "full_pipeline": {
+      "overall": {
+        "precision": 0.9733,
+        "recall": 0.6822,
+        "f1_score": 0.8022,
+        "tp": 73,
+        "fp": 2,
+        "fn": 34
+      },
+      "per_node": {
+        "burning_sensation": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 6
+        },
+        "feeling_of_impending_doom": {
+          "precision": 1.0,
+          "recall": 0.4286,
+          "f1": 0.6,
+          "support": 7
+        },
+        "high_blood_pressure": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 4
+        },
+        "pain_character": {
+          "precision": 0.8824,
+          "recall": 0.7143,
+          "f1": 0.7895,
+          "support": 21
+        },
+        "pain_radiation": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 8
+        },
+        "pleuritic_pain": {
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.3333,
+          "support": 5
+        },
+        "prior_heart_attack_angina": {
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.8889,
+          "support": 5
+        },
+        "racing_heart": {
+          "precision": 1.0,
+          "recall": 0.7778,
+          "f1": 0.875,
+          "support": 9
+        },
+        "recent_viral_infection": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 4
+        },
+        "shortness_of_breath": {
+          "precision": 1.0,
+          "recall": 0.9231,
+          "f1": 0.96,
+          "support": 13
+        },
+        "smoker": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 6
+        },
+        "sweating": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 11
+        },
+        "worse_after_eating": {
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4,
+          "support": 4
+        },
+        "worse_lying_down": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6667,
+          "support": 4
+        }
+      }
+    }
+  },
+  "summary": {
+    "baseline_f1": 0.6358,
+    "pipeline_f1": 0.8022,
+    "f1_gain": 0.1664,
+    "pipeline_beats_baseline": true
+  }
+}
