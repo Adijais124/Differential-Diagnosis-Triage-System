@@ -35,6 +35,12 @@
 - **Key numbers:** Pipeline F1: 0.8022 vs Baseline F1: 0.6358 (+16.64% F1 gain); pipeline precision 0.8068 / recall 0.7978.
 - **Any concern:** Corpus marked 'needs_human_review: true' (status: 'draft gold set, not yet reviewed') for team verification.
 
+## Task 7: Session Pipeline & Glue
+- **What was done:** Built TriageSession orchestrating text input -> scispaCy NLP extraction -> Bayesian Network belief updating -> EIG active questioning loop -> triage output.
+- **Key numbers:** 2/2 session integration tests passed; supports standalone CLI interactive demo (python -m src.pipeline.session); handles question skips as unobserved.
+- **Any concern:** None; clean state isolation across active questioning turns.
+
+
 
 
 
