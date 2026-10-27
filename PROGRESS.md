@@ -25,6 +25,12 @@
 - **Key numbers:** Exactly reproduced Milestone2 toy network EIG: Exertional 0.407 bits / Nausea 0.062 bits; validated ACS risk threshold at 0.25 on validation set.
 - **Any concern:** Thresholds labeled as clinical assumptions and recorded in results/threshold_tuning.json.
 
+## Task 5: Clinical NLP Module & Bug Fixes
+- **What was done:** Implemented scispaCy + PhraseMatcher hybrid extractor with combinatorial variant generation (synonyms.py) and clause-level negation (negation.py); resolved bugs A, B, and C.
+- **Key numbers:** 12/12 NLP unit tests passed (including all 3 original notebook sentences: breathlessness detected via pronoun expansion, exertional false positive eliminated, contrastive negation verified).
+- **Any concern:** None; unmapped scispaCy biomedical entities preserved in result dictionary.
+
+
 
 
 
