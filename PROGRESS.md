@@ -40,6 +40,12 @@
 - **Key numbers:** 2/2 session integration tests passed; supports standalone CLI interactive demo (python -m src.pipeline.session); handles question skips as unobserved.
 - **Any concern:** None; clean state isolation across active questioning turns.
 
+## Task 8: Streamlit Interactive Web Application
+- **What was done:** Developed full Streamlit web app (app/streamlit_app.py) with clinical presets, real-time Plotly horizontal probability bars, active EIG questioning card, and triage severity badges.
+- **Key numbers:** 2/2 unit tests passed (syntax compilation verified, mandatory educational disclaimers verified).
+- **Any concern:** None; runs entirely locally without external API dependencies.
+
+
 
 
 
