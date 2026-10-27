@@ -50,6 +50,12 @@
 - **Key numbers:** EIG needed 1.36 avg questions (vs 6.00 random, 4.73 fixed) — a 77.3% reduction in question burden; achieved 97.5% accuracy and 100% ACS recall (vs 94.6% for random); entropy reduction 1.798 bits.
 - **Any concern:** None; interactive plot generated in results/query_eval_plot.html.
 
+## Task 10: Final Project Report & Viva Prep
+- **What was done:** Synthesized comprehensive lab report in docs/task10_final_report.md covering architecture, complete empirical benchmark results from results/, critical clinical trade-offs, and viva defense cheat sheet.
+- **Key numbers:** Full test suite: 36/36 tests passing; 77.3% question reduction via EIG (1.36 questions); +16.64% NLP F1 gain (0.8022 vs 0.6358 baseline); 100% ACS sensitivity across all evaluations.
+- **Any concern:** Identified 3 items for human team review: provisional node table in config/nodes.json, draft NLP gold set in evaluation/nlp_cases.json, and empirical threshold choices.
+
+
 
 
 
