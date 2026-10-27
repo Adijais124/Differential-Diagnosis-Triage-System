@@ -15,4 +15,10 @@
 - **Key numbers:** 14 nodes (12 binary + 2 multi-valued: pain character & radiation); excluded leaky E_3 (pericarditis history, spread 0.837) and awkward codes.
 - **Any concern:** None; provisional list documented in docs/task2_nodes.md for future team review.
 
+## Task 3: Bayesian Model & Posterior Inference
+- **What was done:** Implemented Naive Bayes structure with Laplace smoothing (alpha=1.0), posterior inference via Bayes rule and pgmpy VariableElimination, and empirical vs uniform prior benchmarking.
+- **Key numbers:** Test accuracy: 99.98% (both priors); ACS recall: 1.0000 on 18,202 test patients; all CPT columns sum to 1.0; no 0/1 probabilities.
+- **Any concern:** Synthetic data causes near-perfect separability; documented in docs/task3_bayesian.md and results/bn_eval.json.
+
+
 
