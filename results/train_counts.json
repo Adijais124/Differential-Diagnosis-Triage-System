@@ -1,0 +1,35 @@
+{
+  "train": {
+    "split": "train",
+    "initial_rows": 1025602,
+    "filtered_rows": 133282,
+    "counts": {
+      "ACS": 59499,
+      "GERD": 25979,
+      "Panic": 25019,
+      "Pericarditis": 22785
+    }
+  },
+  "validate": {
+    "split": "validate",
+    "initial_rows": 132448,
+    "filtered_rows": 17726,
+    "counts": {
+      "ACS": 8031,
+      "GERD": 3426,
+      "Panic": 3237,
+      "Pericarditis": 3032
+    }
+  },
+  "test": {
+    "split": "test",
+    "initial_rows": 134529,
+    "filtered_rows": 18202,
+    "counts": {
+      "ACS": 8177,
+      "GERD": 3543,
+      "Panic": 3387,
+      "Pericarditis": 3095
+    }
+  }
+}
