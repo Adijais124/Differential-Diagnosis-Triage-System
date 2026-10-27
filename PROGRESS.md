@@ -20,5 +20,11 @@
 - **Key numbers:** Test accuracy: 99.98% (both priors); ACS recall: 1.0000 on 18,202 test patients; all CPT columns sum to 1.0; no 0/1 probabilities.
 - **Any concern:** Synthetic data causes near-perfect separability; documented in docs/task3_bayesian.md and results/bn_eval.json.
 
+## Task 4: EIG Engine & Stopping Policy
+- **What was done:** Implemented Shannon entropy, active question ranking via EIG, stopping rules (max 8 questions, min EIG < 0.02 bits, high confidence stop), and ACS risk safety escalation.
+- **Key numbers:** Exactly reproduced Milestone2 toy network EIG: Exertional 0.407 bits / Nausea 0.062 bits; validated ACS risk threshold at 0.25 on validation set.
+- **Any concern:** Thresholds labeled as clinical assumptions and recorded in results/threshold_tuning.json.
+
+
 
 

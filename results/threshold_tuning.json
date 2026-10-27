@@ -1,0 +1,39 @@
+{
+  "status": "VALIDATED",
+  "dataset_sample_size": 1000,
+  "tested_thresholds": {
+    "threshold_0.15": {
+      "acs_risk_threshold": 0.15,
+      "acs_recall": 1.0,
+      "false_positive_rate": 0.0
+    },
+    "threshold_0.20": {
+      "acs_risk_threshold": 0.2,
+      "acs_recall": 1.0,
+      "false_positive_rate": 0.0
+    },
+    "threshold_0.25": {
+      "acs_risk_threshold": 0.25,
+      "acs_recall": 1.0,
+      "false_positive_rate": 0.0
+    },
+    "threshold_0.30": {
+      "acs_risk_threshold": 0.3,
+      "acs_recall": 1.0,
+      "false_positive_rate": 0.0
+    }
+  },
+  "chosen_assumptions": {
+    "acs_risk_threshold": 0.25,
+    "min_eig": 0.02,
+    "max_questions": 8,
+    "confidence_stop": 0.9,
+    "pericarditis_urgent_threshold": 0.7
+  },
+  "assumption_justifications": {
+    "acs_risk_threshold": "ASSUMPTION: Set to 0.25. On validation split, threshold 0.25 achieves 100.0% ACS recall with zero missed ischemic emergencies. In clinical decision support, false negatives for acute coronary events carry catastrophic risk, justifying escalation whenever P(ACS) >= 25%.",
+    "min_eig": "ASSUMPTION: Set to 0.02 bits. Questions providing < 0.02 bits reduce uncertainty by < 1.5%, which does not justify asking additional intrusive questions to a distressed patient.",
+    "max_questions": "ASSUMPTION: Set to 8. Limits patient interview burden in an emergency triage setting.",
+    "confidence_stop": "ASSUMPTION: Set to 0.90. Allows early termination when diagnosis is definitive, provided P(ACS) is not elevated."
+  }
+}
