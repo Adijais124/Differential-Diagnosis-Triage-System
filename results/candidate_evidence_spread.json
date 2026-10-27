@@ -1,0 +1,776 @@
+[
+  {
+    "code": "E_3",
+    "type": "binary",
+    "question_en": "Have you ever had a pericarditis?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.8374
+    },
+    "spread": 0.8374,
+    "overall_prevalence": 0.1432,
+    "flags": [
+      "leaky"
+    ]
+  },
+  {
+    "code": "E_157",
+    "type": "binary",
+    "question_en": "Have you recently had numbness, loss of sensation or tingling, in both arms and legs and around your mouth?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.8045,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.8045,
+    "overall_prevalence": 0.151,
+    "flags": []
+  },
+  {
+    "code": "E_105",
+    "type": "binary",
+    "question_en": "Have you ever had a heart attack or do you have angina (chest pain)?",
+    "p_cond": {
+      "ACS": 0.7831,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7831,
+    "overall_prevalence": 0.3496,
+    "flags": []
+  },
+  {
+    "code": "E_111",
+    "type": "binary",
+    "question_en": "Do you feel like you are dying or were you afraid that you were about do die?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.7683,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7683,
+    "overall_prevalence": 0.1442,
+    "flags": []
+  },
+  {
+    "code": "E_69",
+    "type": "binary",
+    "question_en": "Do you have diabetes?",
+    "p_cond": {
+      "ACS": 0.7627,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7627,
+    "overall_prevalence": 0.3405,
+    "flags": []
+  },
+  {
+    "code": "E_81",
+    "type": "binary",
+    "question_en": "Do you suffer from chronic anxiety?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.7519,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7519,
+    "overall_prevalence": 0.1411,
+    "flags": []
+  },
+  {
+    "code": "E_0",
+    "type": "binary",
+    "question_en": "Have you recently had a viral infection?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.75
+    },
+    "spread": 0.75,
+    "overall_prevalence": 0.1282,
+    "flags": []
+  },
+  {
+    "code": "E_173",
+    "type": "binary",
+    "question_en": "Do you have a burning sensation that starts in your stomach then goes up into your throat, and can be associated with a bitter taste in your mouth?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.7486,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7486,
+    "overall_prevalence": 0.1459,
+    "flags": []
+  },
+  {
+    "code": "E_215",
+    "type": "binary",
+    "question_en": "Do you have symptoms that get worse after eating?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.7447,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7447,
+    "overall_prevalence": 0.1452,
+    "flags": []
+  },
+  {
+    "code": "E_80",
+    "type": "binary",
+    "question_en": "Have you ever been diagnosed with depression?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.734,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.734,
+    "overall_prevalence": 0.1378,
+    "flags": []
+  },
+  {
+    "code": "E_79",
+    "type": "binary",
+    "question_en": "Do you smoke cigarettes?",
+    "p_cond": {
+      "ACS": 0.7241,
+      "GERD": 0.6678,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7241,
+    "overall_prevalence": 0.4534,
+    "flags": []
+  },
+  {
+    "code": "E_155",
+    "type": "binary",
+    "question_en": "Do you feel your heart is beating fast (racing), irregularly (missing a beat) or do you feel palpitations?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.724,
+      "Pericarditis": 0.5599
+    },
+    "spread": 0.724,
+    "overall_prevalence": 0.2316,
+    "flags": []
+  },
+  {
+    "code": "E_71",
+    "type": "binary",
+    "question_en": "Do you have high cholesterol or do you take medications to treat high cholesterol?",
+    "p_cond": {
+      "ACS": 0.721,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.721,
+    "overall_prevalence": 0.3219,
+    "flags": []
+  },
+  {
+    "code": "E_171",
+    "type": "binary",
+    "question_en": "Do you feel like you are detached from your own body or your surroundings?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.7151,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7151,
+    "overall_prevalence": 0.1342,
+    "flags": []
+  },
+  {
+    "code": "E_185",
+    "type": "binary",
+    "question_en": "Have you ever had a head trauma?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.7136,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7136,
+    "overall_prevalence": 0.1339,
+    "flags": []
+  },
+  {
+    "code": "E_70",
+    "type": "binary",
+    "question_en": "Are you significantly overweight compared to people of the same height as you?",
+    "p_cond": {
+      "ACS": 0.7122,
+      "GERD": 0.6019,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7122,
+    "overall_prevalence": 0.4353,
+    "flags": []
+  },
+  {
+    "code": "E_217",
+    "type": "binary",
+    "question_en": "Are your symptoms worse when lying down and alleviated while sitting up?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.6449,
+      "Panic": 0.0,
+      "Pericarditis": 0.7106
+    },
+    "spread": 0.7106,
+    "overall_prevalence": 0.2472,
+    "flags": []
+  },
+  {
+    "code": "E_225",
+    "type": "binary",
+    "question_en": "Do you have close family members who had a cardiovascular disease problem before the age of 50?",
+    "p_cond": {
+      "ACS": 0.7059,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7059,
+    "overall_prevalence": 0.3151,
+    "flags": []
+  },
+  {
+    "code": "E_66",
+    "type": "binary",
+    "question_en": "Are you experiencing shortness of breath or difficulty breathing in a significant way?",
+    "p_cond": {
+      "ACS": 0.6382,
+      "GERD": 0.0,
+      "Panic": 0.7057,
+      "Pericarditis": 0.63
+    },
+    "spread": 0.7057,
+    "overall_prevalence": 0.5251,
+    "flags": []
+  },
+  {
+    "code": "E_82",
+    "type": "binary",
+    "question_en": "Do you feel lightheaded and dizzy or do you feel like you are about to faint?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.7015,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.7015,
+    "overall_prevalence": 0.1317,
+    "flags": []
+  },
+  {
+    "code": "E_220",
+    "type": "binary",
+    "question_en": "Do you have pain that is increased when you breathe in deeply?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.6946
+    },
+    "spread": 0.6946,
+    "overall_prevalence": 0.1187,
+    "flags": []
+  },
+  {
+    "code": "E_104",
+    "type": "binary",
+    "question_en": "Do you have high blood pressure or do you take medications to treat high blood pressure?",
+    "p_cond": {
+      "ACS": 0.6938,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6938,
+    "overall_prevalence": 0.3097,
+    "flags": []
+  },
+  {
+    "code": "E_201",
+    "type": "binary",
+    "question_en": "Do you have a cough?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.6916,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6916,
+    "overall_prevalence": 0.1348,
+    "flags": []
+  },
+  {
+    "code": "E_98",
+    "type": "binary",
+    "question_en": "Do you have a hiatal hernia?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.6836,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6836,
+    "overall_prevalence": 0.1333,
+    "flags": []
+  },
+  {
+    "code": "E_16",
+    "type": "binary",
+    "question_en": "Do you feel anxious?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.6709,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6709,
+    "overall_prevalence": 0.1259,
+    "flags": []
+  },
+  {
+    "code": "E_124",
+    "type": "binary",
+    "question_en": "Do you have asthma or have you ever had to use a bronchodilator in the past?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.6692,
+      "Panic": 0.6329,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6692,
+    "overall_prevalence": 0.2492,
+    "flags": []
+  },
+  {
+    "code": "E_138",
+    "type": "binary",
+    "question_en": "Do you suffer from fibromyalgia?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.6634,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6634,
+    "overall_prevalence": 0.1245,
+    "flags": []
+  },
+  {
+    "code": "E_50",
+    "type": "binary",
+    "question_en": "Have you had significantly increased sweating?",
+    "p_cond": {
+      "ACS": 0.4166,
+      "GERD": 0.0,
+      "Panic": 0.6071,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6071,
+    "overall_prevalence": 0.2999,
+    "flags": []
+  },
+  {
+    "code": "E_78",
+    "type": "binary",
+    "question_en": "Do you drink alcohol excessively or do you have an addiction to alcohol?",
+    "p_cond": {
+      "ACS": 0.4035,
+      "GERD": 0.6049,
+      "Panic": 0.5703,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.6049,
+    "overall_prevalence": 0.4051,
+    "flags": []
+  },
+  {
+    "code": "E_75",
+    "type": "binary",
+    "question_en": "Do you feel like you are (or were) choking or suffocating?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.5683,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.5683,
+    "overall_prevalence": 0.1067,
+    "flags": []
+  },
+  {
+    "code": "E_29",
+    "type": "binary",
+    "question_en": "Do any members of your immediate family have a psychiatric illness?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.5542,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.5542,
+    "overall_prevalence": 0.104,
+    "flags": []
+  },
+  {
+    "code": "E_177",
+    "type": "binary",
+    "question_en": "Do you currently, or did you ever, have numbness, loss of sensitivity or tingling anywhere on your body?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.5517,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.5517,
+    "overall_prevalence": 0.1036,
+    "flags": []
+  },
+  {
+    "code": "E_89",
+    "type": "binary",
+    "question_en": "Do you constantly feel fatigued or do you have non-restful sleep?",
+    "p_cond": {
+      "ACS": 0.5465,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.5465,
+    "overall_prevalence": 0.2439,
+    "flags": []
+  },
+  {
+    "code": "E_99",
+    "type": "binary",
+    "question_en": "Have you ever had a migraine or is a member of your family known to have migraines?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.0,
+      "Panic": 0.5421,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.5421,
+    "overall_prevalence": 0.1018,
+    "flags": []
+  },
+  {
+    "code": "E_148",
+    "type": "binary",
+    "question_en": "Are you feeling nauseous or do you feel like vomiting?",
+    "p_cond": {
+      "ACS": 0.4114,
+      "GERD": 0.0,
+      "Panic": 0.535,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.535,
+    "overall_prevalence": 0.2841,
+    "flags": []
+  },
+  {
+    "code": "E_218",
+    "type": "binary",
+    "question_en": "Do you have symptoms that are increased with physical exertion but alleviated with rest?",
+    "p_cond": {
+      "ACS": 0.4958,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.4958,
+    "overall_prevalence": 0.2213,
+    "flags": []
+  },
+  {
+    "code": "E_143",
+    "type": "binary",
+    "question_en": "Do you exercise regularly, 4 times per week or more?",
+    "p_cond": {
+      "ACS": 0.4216,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.4216,
+    "overall_prevalence": 0.1882,
+    "flags": []
+  },
+  {
+    "code": "E_167",
+    "type": "binary",
+    "question_en": "Do you think you are pregnant or are you currently pregnant?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.3475,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.3475,
+    "overall_prevalence": 0.0677,
+    "flags": []
+  },
+  {
+    "code": "E_210",
+    "type": "binary",
+    "question_en": "Have you recently thrown up blood or something resembling coffee beans?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.3091,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.3091,
+    "overall_prevalence": 0.0602,
+    "flags": []
+  },
+  {
+    "code": "E_140",
+    "type": "binary",
+    "question_en": "Have you recently had stools that were black (like coal)?",
+    "p_cond": {
+      "ACS": 0.0,
+      "GERD": 0.3074,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.3074,
+    "overall_prevalence": 0.0599,
+    "flags": []
+  },
+  {
+    "code": "E_108",
+    "type": "binary",
+    "question_en": "Do you have a problem with poor circulation?",
+    "p_cond": {
+      "ACS": 0.2617,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.2617,
+    "overall_prevalence": 0.1168,
+    "flags": []
+  },
+  {
+    "code": "E_13",
+    "type": "binary",
+    "question_en": "Do you find that your symptoms have worsened over the last 2 weeks and that progressively less effort is required to cause the symptoms?",
+    "p_cond": {
+      "ACS": 0.2486,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.2486,
+    "overall_prevalence": 0.111,
+    "flags": []
+  },
+  {
+    "code": "E_2",
+    "type": "binary",
+    "question_en": "Are you infected with the human immunodeficiency virus (HIV)?",
+    "p_cond": {
+      "ACS": 0.2393,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.2393,
+    "overall_prevalence": 0.1068,
+    "flags": []
+  },
+  {
+    "code": "E_14",
+    "type": "binary",
+    "question_en": "Do you have chest pain even at rest?",
+    "p_cond": {
+      "ACS": 0.2353,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.2353,
+    "overall_prevalence": 0.105,
+    "flags": []
+  },
+  {
+    "code": "E_161",
+    "type": "binary",
+    "question_en": "Have you recently had a loss of appetite or do you get full more quickly then usually?",
+    "p_cond": {
+      "ACS": 0.2287,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.2287,
+    "overall_prevalence": 0.1021,
+    "flags": []
+  },
+  {
+    "code": "E_191",
+    "type": "binary",
+    "question_en": "Are you a former smoker?",
+    "p_cond": {
+      "ACS": 0.211,
+      "GERD": 0.0,
+      "Panic": 0.0,
+      "Pericarditis": 0.0
+    },
+    "spread": 0.211,
+    "overall_prevalence": 0.0942,
+    "flags": []
+  },
+  {
+    "code": "E_53",
+    "type": "binary",
+    "question_en": "Do you have pain somewhere, related to your reason for consulting?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 0.9947,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0053,
+    "overall_prevalence": 0.999,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_204",
+    "type": "binary",
+    "question_en": "Have you traveled out of the country in the last 4 weeks?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_54",
+    "type": "binary",
+    "question_en": "Characterize your pain:",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_55",
+    "type": "binary",
+    "question_en": "Do you feel pain somewhere?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_56",
+    "type": "binary",
+    "question_en": "How intense is the pain?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_57",
+    "type": "binary",
+    "question_en": "Does the pain radiate to another location?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_58",
+    "type": "binary",
+    "question_en": "How precisely is the pain located?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  },
+  {
+    "code": "E_59",
+    "type": "binary",
+    "question_en": "How fast did the pain appear?",
+    "p_cond": {
+      "ACS": 1.0,
+      "GERD": 1.0,
+      "Panic": 1.0,
+      "Pericarditis": 1.0
+    },
+    "spread": 0.0,
+    "overall_prevalence": 1.0,
+    "flags": [
+      "constant_high"
+    ]
+  }
+]

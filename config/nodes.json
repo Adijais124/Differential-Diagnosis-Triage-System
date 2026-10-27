@@ -1,0 +1,131 @@
+{
+  "status": "PROVISIONAL",
+  "version": "1.0",
+  "description": "Provisional candidate Bayesian node table for differential diagnosis chest-pain triage.",
+  "nodes": [
+    {
+      "name": "pain_character",
+      "ddxplus_code": "E_54",
+      "states": ["heavy_pressure", "burning", "sharp_knife", "cramp_other", "none"],
+      "value_mapping": {
+        "V_183": "heavy_pressure",
+        "V_154": "heavy_pressure",
+        "V_198": "heavy_pressure",
+        "V_181": "burning",
+        "V_161": "burning",
+        "V_193": "burning",
+        "V_179": "sharp_knife",
+        "V_192": "sharp_knife",
+        "V_182": "cramp_other"
+      },
+      "default_state": "none",
+      "question_text": "How would you characterize your chest pain (e.g. heavy pressure, burning, sharp knife-like, cramp)?",
+      "nlp_phrases_key": "pain_character"
+    },
+    {
+      "name": "pain_radiation",
+      "ddxplus_code": "E_57",
+      "states": ["nowhere", "arm_shoulder", "back_chest_wall", "neck_jaw", "other"],
+      "value_mapping": {
+        "V_123": "nowhere",
+        "V_30": "arm_shoulder",
+        "V_31": "arm_shoulder",
+        "V_33": "arm_shoulder",
+        "V_194": "arm_shoulder",
+        "V_195": "arm_shoulder",
+        "V_170": "back_chest_wall",
+        "V_171": "back_chest_wall",
+        "V_121": "neck_jaw",
+        "V_53": "neck_jaw",
+        "V_54": "neck_jaw"
+      },
+      "default_state": "nowhere",
+      "question_text": "Does your chest pain radiate anywhere (such as your arm, shoulder, back, neck, or jaw)?",
+      "nlp_phrases_key": "pain_radiation"
+    },
+    {
+      "name": "sweating",
+      "ddxplus_code": "E_50",
+      "states": ["no", "yes"],
+      "question_text": "Have you had significantly increased sweating (diaphoresis)?",
+      "nlp_phrases_key": "sweating"
+    },
+    {
+      "name": "shortness_of_breath",
+      "ddxplus_code": "E_66",
+      "states": ["no", "yes"],
+      "question_text": "Are you experiencing shortness of breath or difficulty breathing?",
+      "nlp_phrases_key": "shortness_of_breath"
+    },
+    {
+      "name": "racing_heart",
+      "ddxplus_code": "E_155",
+      "states": ["no", "yes"],
+      "question_text": "Do you feel your heart is beating fast (racing), irregularly, or having palpitations?",
+      "nlp_phrases_key": "racing_heart"
+    },
+    {
+      "name": "worse_after_eating",
+      "ddxplus_code": "E_215",
+      "states": ["no", "yes"],
+      "question_text": "Do your symptoms get worse after eating or after meals?",
+      "nlp_phrases_key": "worse_after_eating"
+    },
+    {
+      "name": "burning_sensation",
+      "ddxplus_code": "E_173",
+      "states": ["no", "yes"],
+      "question_text": "Do you feel a burning sensation in your chest, stomach, or throat (heartburn/acid)?",
+      "nlp_phrases_key": "burning_sensation"
+    },
+    {
+      "name": "worse_lying_down",
+      "ddxplus_code": "E_217",
+      "states": ["no", "yes"],
+      "question_text": "Are your symptoms worse when lying down flat and alleviated by sitting up or leaning forward?",
+      "nlp_phrases_key": "worse_lying_down"
+    },
+    {
+      "name": "pleuritic_pain",
+      "ddxplus_code": "E_220",
+      "states": ["no", "yes"],
+      "question_text": "Does your chest pain increase when taking a deep breath in or coughing?",
+      "nlp_phrases_key": "pleuritic_pain"
+    },
+    {
+      "name": "recent_viral_infection",
+      "ddxplus_code": "E_0",
+      "states": ["no", "yes"],
+      "question_text": "Have you recently had a viral infection, cold, flu, or respiratory illness?",
+      "nlp_phrases_key": "recent_viral_infection"
+    },
+    {
+      "name": "prior_heart_attack_angina",
+      "ddxplus_code": "E_105",
+      "states": ["no", "yes"],
+      "question_text": "Have you ever had a previous heart attack or diagnosed angina (coronary artery disease)?",
+      "nlp_phrases_key": "prior_heart_attack_angina"
+    },
+    {
+      "name": "smoker",
+      "ddxplus_code": "E_79",
+      "states": ["no", "yes"],
+      "question_text": "Do you currently smoke cigarettes or have a history of smoking?",
+      "nlp_phrases_key": "smoker"
+    },
+    {
+      "name": "high_blood_pressure",
+      "ddxplus_code": "E_104",
+      "states": ["no", "yes"],
+      "question_text": "Do you have high blood pressure (hypertension) or take blood pressure medications?",
+      "nlp_phrases_key": "high_blood_pressure"
+    },
+    {
+      "name": "feeling_of_impending_doom",
+      "ddxplus_code": "E_111",
+      "states": ["no", "yes"],
+      "question_text": "Do you feel an overwhelming fear or sensation that you are about to die (impending doom)?",
+      "nlp_phrases_key": "feeling_of_impending_doom"
+    }
+  ]
+}
