@@ -69,28 +69,101 @@ if "session_active" not in st.session_state:
     st.session_state.final_result = None
 
 # Sidebar: Preset clinical scenarios
-st.sidebar.title("Sample Clinical Presets")
+st.sidebar.title("Clinical Demonstration Presets")
 presets = {
-    "Select a preset...": "",
-    "Scenario 1: Classic ACS (Urgent)": (
-        "A 55-year-old male smoker reports heavy pressure in his chest for 20 minutes, "
-        "radiating to left arm with sweating. Denies nausea."
-    ),
-    "Scenario 2: GERD (Postprandial Heartburn)": (
-        "42-year-old woman complains of burning chest pain and acid taste in throat, "
-        "significantly worse after eating dinner. Denies shortness of breath."
-    ),
-    "Scenario 3: Panic Attack (Young Adult)": (
-        "She can't catch her breath, has a racing heart and feels anxious. "
-        "Feels like she is about to die. No chest pain on exertion."
-    ),
-    "Scenario 4: Pericarditis (Pleuritic & Positional)": (
-        "30-year-old male with sharp knife-like chest pain that is worse when taking a deep breath, "
-        "relieved by leaning forward. Had a viral illness 1 week ago."
-    ),
+    "Select a demonstration scenario...": {
+        "text": "",
+        "desc": "Select a scenario to demonstrate 100% definitive cases, active questioning, or edge-case guards.",
+    },
+    # --- Category 1: 100% Definitive Single Diagnoses ---
+    "🎯 100% ACS (Classic MI Emergency)": {
+        "text": (
+            "A 58-year-old male smoker with crushing chest pressure radiating to his left arm and cold sweat. "
+            "It started while walking 25 minutes ago. Denies nausea."
+        ),
+        "desc": "Demonstrates definitive Acute Coronary Syndrome (100.0%) and immediate URGENT triage safety escalation.",
+    },
+    "🎯 100% GERD (Postprandial Reflux)": {
+        "text": (
+            "45-year-old man with burning pain in the chest after a large meal. "
+            "Worse when lying down flat with sour acid taste in throat. No sweating and no shortness of breath."
+        ),
+        "desc": "Demonstrates definitive GERD resolution (100.0%) with ACS safely ruled out (ROUTINE outpatient triage).",
+    },
+    "🎯 100% Panic Attack (Palpitations & Anxiety)": {
+        "text": (
+            "21-year-old student feels like she is dying, extreme anxiety, heart racing and pounding, "
+            "can't catch breath, dizzy with tingling hands. No chest pain on exertion."
+        ),
+        "desc": "Demonstrates classic Panic diagnosis (100.0%) with cardiac causes ruled out (SEMI-URGENT disposition).",
+    },
+    "🎯 100% Pericarditis (Pleuritic & Post-Viral)": {
+        "text": (
+            "32-year-old male with sharp stabbing chest pain that is worse on deep breath and worse lying down flat, "
+            "relieved by sitting forward. Had a bad viral flu last week."
+        ),
+        "desc": "Demonstrates acute pericarditis (100.0%) from sharp pleuritic pain + viral prodrome (URGENT triage).",
+    },
+
+    # --- Category 2: Deciding Between 2 Pathologies (Active Questioning Showcase) ---
+    "⚖️ Split: GERD vs ACS (Burning pain in smoker)": {
+        "text": (
+            "50-year-old male smoker with burning chest pain radiating to jaw and throat. "
+            "Denies shortness of breath."
+        ),
+        "desc": "Starts as a split: GERD (52.7%) vs ACS (47.3%). EIG actively asks questions to separate the two conditions.",
+    },
+    "⚖️ Split: Panic vs ACS (Atypical Breathless & Sweaty)": {
+        "text": (
+            "68-year-old woman with sudden severe breathlessness, profuse sweating and nausea. No chest pain."
+        ),
+        "desc": "Atypical presentation without chest pain: ACS (59.6%) vs Panic (40.4%). System actively clarifies pain character.",
+    },
+    "⚖️ Split: Vague Complaint ('my chest hurts')": {
+        "text": "my chest hurts",
+        "desc": "Minimal clinical information. EIG dynamically asks pain character first to branch into the differential.",
+    },
+
+    # --- Category 3: Edge Cases & System Guardrails ---
+    "⚠️ Out-of-Domain Guard: 'My knee hurts'": {
+        "text": "My knee hurts when I run.",
+        "desc": "Tests intake gatekeeper: detects non-cardiac complaint, displays advisory banner, and blocks false chest triage.",
+    },
+    "⚠️ Out-of-Domain Guard: Abdominal Emergency": {
+        "text": "Severe right lower quadrant abdominal pain with fever and vomiting for 6 hours.",
+        "desc": "Tests surgical rejection: identifies acute abdomen and guides patient to non-chest emergency services.",
+    },
+    "🔤 Typo Normalization: Patient Misspellings": {
+        "text": "chest tightnes with sweting and shortnes of breath",
+        "desc": "Tests clinical spell-checker: automatically normalizes tightnes, sweting, shortnes, resolving to ACS.",
+    },
+    "🚫 Complex Negation: Triple Exclusion Chain": {
+        "text": (
+            "Patient denies chest pressure, denies sweating, and denies arm pain, "
+            "but reports sharp pain when breathing deeply."
+        ),
+        "desc": "Tests clause-level negation boundaries: correctly excludes pressure and sweating while identifying pleuritic pain.",
+    },
 }
 
-selected_preset = st.sidebar.selectbox("Load sample case:", list(presets.keys()))
+selected_preset = st.sidebar.selectbox("Load demonstration case:", list(presets.keys()))
+preset_info = presets[selected_preset]
+if preset_info["desc"]:
+    st.sidebar.info(preset_info["desc"])
+
+# Automatically update text and reset state if a new preset is chosen
+if "last_preset" not in st.session_state:
+    st.session_state.last_preset = selected_preset
+
+if st.session_state.last_preset != selected_preset:
+    st.session_state.last_preset = selected_preset
+    st.session_state.session_active = False
+    st.session_state.evidence = {}
+    st.session_state.answered = set()
+    st.session_state.history = []
+    st.session_state.current_text = preset_info["text"]
+    st.session_state.final_result = None
+    st.rerun()
 
 st.title("🩺 Chest-Pain Differential Diagnosis & Active Triage")
 st.markdown(
@@ -99,7 +172,7 @@ st.markdown(
 )
 
 # Patient narrative input
-default_text = presets.get(selected_preset, "") if selected_preset != "Select a preset..." else st.session_state.current_text
+default_text = preset_info["text"] if selected_preset != "Select a demonstration scenario..." else st.session_state.current_text
 
 user_narrative = st.text_area(
     "**Enter patient chief complaint / clinical triage note:**",
