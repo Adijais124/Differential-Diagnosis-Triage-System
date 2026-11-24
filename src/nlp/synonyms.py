@@ -71,6 +71,22 @@ def build_synonym_dictionary() -> dict[str, list[str]]:
             "chest muscle cramp",
             "spasm in the chest",
         ],
+        # Generic chest pain / discomfort (unspecified character)
+        "has_chest_pain": [
+            "chest hurts",
+            "chest pain",
+            "chest discomfort",
+            "chest ache",
+            "hurting chest",
+            "pain in {the|his|her|my|their} chest",
+            "ache in {the|his|her|my|their} chest",
+            "hurts in {the|his|her|my|their} chest",
+            "hurting in {the|his|her|my|their} chest",
+            "sore chest",
+            "pain behind {the|his|her|my|their} breastbone",
+            "pain behind breastbone",
+            "burning sensation behind {the|his|her|my} breastbone",
+        ],
 
         # 2. Multi-valued: Radiation sub-states
         "pain_radiation_arm_shoulder": [

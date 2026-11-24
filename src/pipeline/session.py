@@ -108,8 +108,11 @@ class TriageSession:
         self.answered.add(question)
         ans_clean = answer.strip().lower()
 
-        if ans_clean not in ["unknown", "skip", "don't know", "none"]:
+        if ans_clean not in ["unknown", "skip", "don't know"]:
             self.evidence[question] = ans_clean
+            if question == "pain_character" and ans_clean == "none":
+                self.evidence["pain_radiation"] = "nowhere"
+                self.answered.add("pain_radiation")
 
         updated_post = posterior(self.model, self.evidence, use_fast_bayes=True)
         self.history.append({

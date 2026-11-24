@@ -63,6 +63,9 @@ if "session_active" not in st.session_state:
     st.session_state.current_text = ""
     st.session_state.attributes = {}
     st.session_state.unmapped = []
+    st.session_state.is_out_of_domain = False
+    st.session_state.domain_reason = ""
+    st.session_state.override_domain = False
     st.session_state.final_result = None
 
 # Sidebar: Preset clinical scenarios
@@ -117,6 +120,9 @@ with col_btn1:
                 st.session_state.current_text = user_narrative
                 st.session_state.attributes = nlp_out["attributes"]
                 st.session_state.unmapped = nlp_out["unmapped"]
+                st.session_state.is_out_of_domain = nlp_out.get("is_out_of_domain", False)
+                st.session_state.domain_reason = nlp_out.get("domain_reason", "")
+                st.session_state.override_domain = False
                 st.session_state.evidence = dict(nlp_out["findings"])
                 st.session_state.answered = set(st.session_state.evidence.keys())
                 st.session_state.history = []
@@ -128,12 +134,31 @@ with col_btn2:
         st.session_state.evidence = {}
         st.session_state.answered = set()
         st.session_state.history = []
+        st.session_state.is_out_of_domain = False
+        st.session_state.domain_reason = ""
+        st.session_state.override_domain = False
         st.session_state.final_result = None
         st.rerun()
 
 # If session is active
 if st.session_state.session_active:
     st.markdown("---")
+
+    # Out-of-domain Gatekeeper
+    if st.session_state.is_out_of_domain and not st.session_state.override_domain:
+        st.warning(
+            f"⚠️ **NON-CARDIOVASCULAR / OUT-OF-DOMAIN COMPLAINT DETECTED**  \n\n"
+            f"**Clinical Intake Finding:** {st.session_state.domain_reason}  \n\n"
+            f"This triage system is calibrated specifically for acute chest pain and thoracic differentials "
+            f"(Acute Coronary Syndrome, GERD, Panic Disorder, Acute Pericarditis). "
+            f"Unrelated complaints (such as orthopedic limb/joint pain) should be referred to appropriate non-emergency or outpatient specialty services."
+        )
+        col_c1, col_c2 = st.columns([1, 2])
+        if col_c1.button("Override & Evaluate Chest Triage Anyway", type="secondary"):
+            st.session_state.override_domain = True
+            st.rerun()
+        st.stop()
+
     col_left, col_right = st.columns([1, 1])
 
     # Left Column: Extracted findings and demographics
@@ -243,6 +268,10 @@ if st.session_state.session_active:
                 st.session_state.answered.add(q_name)
                 st.session_state.evidence[q_name] = st_val
                 st.session_state.history.append((q_name, st_val))
+                if q_name == "pain_character" and st_val == "none":
+                    st.session_state.evidence["pain_radiation"] = "nowhere"
+                    st.session_state.answered.add("pain_radiation")
+                    st.session_state.history.append(("pain_radiation", "nowhere (auto)"))
                 st.rerun()
 
         # Skip / Don't Know button

@@ -15,6 +15,63 @@ _NLP_MODEL = None
 _MATCHER = None
 _SYN_DICT = None
 
+TYPO_CORRECTIONS = {
+    r"\btightnes\b": "tightness",
+    r"\bsweting\b": "sweating",
+    r"\bsweeting\b": "sweating",
+    r"\bshortnes\b": "shortness",
+    r"\bbreth\b": "breath",
+    r"\bpresure\b": "pressure",
+    r"\bhart\b": "heart",
+    r"\bnausia\b": "nausea",
+    r"\bdizzyiness\b": "dizziness",
+    r"\bradiatin\b": "radiating",
+    r"\bpalpatations\b": "palpitations",
+    r"\bpalpitation\b": "palpitations",
+}
+
+CHEST_CARDIO_KEYWORDS = {
+    "chest", "heart", "cardiac", "pressure", "tightness", "tight", "heavy",
+    "crushing", "squeezing", "burning", "heartburn", "acid", "reflux",
+    "breath", "breathing", "dyspnea", "winded", "sweat", "sweating",
+    "palpitation", "palpitations", "racing", "doom", "substernal",
+    "breastbone", "sternum", "ribs", "angina", "arm", "shoulder",
+    "jaw", "neck", "throat", "pleuritic", "pericarditis", "postprandial",
+}
+
+
+def normalize_clinical_text(text: str) -> str:
+    """Correct frequent patient misspellings and typos."""
+    normalized = text
+    for pattern, repl in TYPO_CORRECTIONS.items():
+        normalized = re.sub(pattern, repl, normalized, flags=re.IGNORECASE)
+    return normalized
+
+
+def check_domain_relevance(text: str, findings: dict, unmapped: list[str]) -> tuple[bool, str]:
+    """Check if presentation contains symptoms within cardiovascular/chest triage scope.
+
+    Returns:
+        (is_out_of_domain: bool, reason: str)
+    """
+    clean_text = text.strip()
+    if not clean_text:
+        return True, "No clinical symptoms were entered."
+
+    low = clean_text.lower()
+    has_cardio_keyword = any(re.search(rf"\b{kw}\b", low) for kw in CHEST_CARDIO_KEYWORDS)
+    has_findings = len([k for k in findings if k != "has_chest_pain" or findings[k] == "yes"]) > 0
+
+    if has_findings or has_cardio_keyword:
+        return False, "Relevant thoracic/cardiovascular presentation."
+
+    if unmapped:
+        complaint = ", ".join(f"'{u}'" for u in unmapped[:3])
+        return True, f"Non-cardiovascular complaint detected ({complaint})."
+
+    return True, "No cardiovascular or chest-pain symptoms identified."
+
+
 
 def get_nlp_pipeline():
     """Lazily load scispaCy pipeline and initialize PhraseMatcher."""
@@ -70,10 +127,13 @@ def extract_findings(text: str) -> dict:
           "findings": {"sweating": "yes", "shortness_of_breath": "yes", "pain_character": "heavy_pressure"},
           "attributes": {"age": 55, "sex": "M", "duration_min": 20},
           "unmapped": ["entities found by scispaCy but not in dictionary"],
+          "is_out_of_domain": bool,
+          "domain_reason": str,
         }
     """
+    norm_text = normalize_clinical_text(text)
     nlp, matcher, syn_dict = get_nlp_pipeline()
-    doc = nlp(text)
+    doc = nlp(norm_text)
 
     findings = {}
     matched_spans = []
@@ -86,13 +146,13 @@ def extract_findings(text: str) -> dict:
         matched_spans.append((span.start_char, span.end_char, key, span.text))
 
     # Also check special direct regexes (e.g. non-smoker, exertional chest pain)
-    low_text = text.lower()
+    low_text = norm_text.lower()
     if re.search(r"\b(non-smoker|non smoker|denies smoking|never smoked)\b", low_text):
         findings["smoker"] = "no"
 
     # 2. Resolve negation and map to Bayesian nodes
     for start_char, end_char, key, span_text in matched_spans:
-        negated = is_mention_negated(text, start_char, end_char)
+        negated = is_mention_negated(norm_text, start_char, end_char)
         state_str = "no" if negated else "yes"
 
         # Multi-valued mappings
@@ -106,6 +166,8 @@ def extract_findings(text: str) -> dict:
                 findings["pain_radiation"] = sub_state
         elif key == "anxiety":
             findings["feeling_of_impending_doom"] = state_str
+        elif key == "has_chest_pain":
+            findings["has_chest_pain"] = state_str
         else:
             findings[key] = state_str
 
@@ -125,10 +187,16 @@ def extract_findings(text: str) -> dict:
                 unmapped.append(ent.text)
 
     # 4. Extract demographic attributes
-    attributes = extract_attributes(text)
+    attributes = extract_attributes(norm_text)
+
+    # 5. Check domain relevance
+    sorted_unmapped = sorted(list(set(unmapped)))
+    is_ood, ood_reason = check_domain_relevance(text, findings, sorted_unmapped)
 
     return {
         "findings": findings,
         "attributes": attributes,
-        "unmapped": sorted(list(set(unmapped))),
+        "unmapped": sorted_unmapped,
+        "is_out_of_domain": is_ood,
+        "domain_reason": ood_reason,
     }

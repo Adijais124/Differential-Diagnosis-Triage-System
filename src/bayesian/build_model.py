@@ -8,6 +8,7 @@ Supports both empirical and uniform class priors.
 import ast
 import json
 import os
+from pathlib import Path
 import numpy as np
 import pandas as pd
 from pgmpy.factors.discrete import TabularCPD

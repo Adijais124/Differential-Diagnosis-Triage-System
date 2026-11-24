@@ -147,3 +147,33 @@ def test_case_unmapped_entities_retained():
     assert findings
     assert findings.get("pain_character") == "heavy_pressure"
     assert len(res["unmapped"]) > 0, "scispaCy entities like headache or rash should be retained in unmapped"
+
+
+def test_typo_correction_extracts_findings():
+    """Verify that common clinical typos are normalized and extracted correctly."""
+    text = "chest tightnes with sweting and shortnes of breath"
+    res = extract_findings(text)
+    findings = res["findings"]
+
+    assert findings.get("pain_character") == "heavy_pressure"
+    assert findings.get("sweating") == "yes"
+    assert findings.get("shortness_of_breath") == "yes"
+
+
+def test_out_of_domain_detection_knee():
+    """Verify that an orthopedic non-chest complaint is flagged as out of domain."""
+    text = "My knee hurts when I run."
+    res = extract_findings(text)
+
+    assert res.get("is_out_of_domain") is True
+    assert "knee" in res.get("domain_reason", "").lower() or len(res.get("unmapped", [])) > 0
+
+
+def test_generic_chest_pain_extraction():
+    """Verify that 'my chest hurts' is recognized as chest pain."""
+    text = "my chest hurts"
+    res = extract_findings(text)
+
+    assert res.get("is_out_of_domain") is False
+    assert res["findings"].get("has_chest_pain") == "yes"
+

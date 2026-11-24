@@ -108,8 +108,16 @@ def next_step(
     if cfg is not None:
         config.update(cfg)
 
+    # Clinical consistency rule:
+    # If pain_character is "none", pain cannot radiate. Automatically infer pain_radiation as "nowhere".
+    eff_evidence = dict(evidence)
+    eff_answered = set(answered)
+    if eff_evidence.get("pain_character") == "none" and "pain_radiation" not in eff_answered:
+        eff_evidence["pain_radiation"] = "nowhere"
+        eff_answered.add("pain_radiation")
+
     # 1. Compute current posterior
-    current_post = posterior(model, evidence, use_fast_bayes=True)
+    current_post = posterior(model, eff_evidence, use_fast_bayes=True)
     top_cond, top_prob = max(current_post.items(), key=lambda x: x[1])
     p_acs = current_post.get("ACS", 0.0)
 
@@ -121,7 +129,7 @@ def next_step(
         candidate_nodes = None
 
     # 2. Check stopping rule: max questions reached
-    if len(answered) >= config["max_questions"]:
+    if len(eff_answered) >= config["max_questions"]:
         triage_level, triage_reason = determine_triage(current_post, config)
         return {
             "action": "stop",
@@ -135,8 +143,8 @@ def next_step(
     # 3. Rank remaining unanswered questions by EIG
     ranked = rank_unanswered_questions(
         model,
-        evidence=evidence,
-        answered=answered,
+        evidence=eff_evidence,
+        answered=eff_answered,
         candidate_nodes=candidate_nodes,
         use_fast_bayes=True,
     )

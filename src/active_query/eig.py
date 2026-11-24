@@ -117,4 +117,16 @@ def rank_unanswered_questions(
         })
 
     scored.sort(key=lambda x: x["eig"], reverse=True)
+
+    # Clinical precedence tie-breaker:
+    # If pain_character is within 0.05 bits of the top question,
+    # prioritize characterizing the pain before asking about radiation pathways.
+    if len(scored) >= 2:
+        top_eig = scored[0]["eig"]
+        for idx, item in enumerate(scored[1:], start=1):
+            if item["name"] == "pain_character" and (top_eig - item["eig"]) <= 0.05:
+                char_item = scored.pop(idx)
+                scored.insert(0, char_item)
+                break
+
     return scored
