@@ -39,7 +39,6 @@ project/
   evaluation/                  # Benchmarking (NLP baseline vs pipeline, BN eval, query eval)
   tests/                       # Pytest test suite
   results/                     # Evaluation metrics and artifact logs
-  docs/                        # Plain-English viva explanations for each module
   notebooks/Milestone2_.ipynb  # Exploration & reference notebook
 ```
 
